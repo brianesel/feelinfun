@@ -168,4 +168,21 @@ p {
   transform: rotateY(90deg) translateZ(200px);
 }
 </style>
+<script>
+    var element = document.querySelector(".oven-door");
+var open = false;
+element.addEventListener("click", toggleDoor);
+
+function toggleDoor() {
+  if(open==false){
+    element.classList.toggle("doorOpen");
+    open = true;
+    console.log("opening");
+  } else {
+    element.classList.toggle("close");
+    open = false;
+    console.log("closing");
+  }
+}
+</script>
 </body>
