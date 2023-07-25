@@ -1,175 +1,171 @@
 <body>
-<div class='header'> </div>
-<div class="wrapper">
-    <div class="head"><img id= "myface" src="https://i.ibb.co/NNYjw7M/DSC-0508-removebg-preview.png" alt="me-face" border="0"></div>
-    <div class="torso"></div>
-    <div class="leftarm"></div>
-    <div class="rightarm"></div>
-    <div class="leftleg"></div>
-    <div class="leftfoot"></div>
-    <div class="rightleg"></div>
-    <div class="rightfoot"></div>
-</div>
-  
-  <div class="wrapper">
-    <div class="head"><img id= "myface" src="https://i.ibb.co/NNYjw7M/DSC-0508-removebg-preview.png" alt="me-face" border="0"></div>
-    <div class="torso"></div>
-    <div class="leftarm"></div>
-    <div class="rightarm"></div>
-    <div class="leftleg"></div>
-    <div class="leftfoot"></div>
-    <div class="rightleg"></div>
-    <div class="rightfoot"></div>
-</div>
-  
-  <div class="wrapper">
-    <div class="head"><img id= "myface" src="https://i.ibb.co/NNYjw7M/DSC-0508-removebg-preview.png" alt="me-face" border="0"></div>
-    <div class="torso"></div>
-    <div class="leftarm"></div>
-    <div class="rightarm"></div>
-    <div class="leftleg"></div>
-    <div class="leftfoot"></div>
-    <div class="rightleg"></div>
-    <div class="rightfoot"></div>
+<div class="container">
+    <div class="oven">
+        <div class="top">
+            <div class="burner"></div>
+            <div class="burner"></div>
+            <div class="burner"></div>
+            <div class="burner"></div>
+        </div>
+<!--         <div class="left"></div> -->
+        <div class="front">
+          <div class="controller">
+            
+          </div>
+          <div class="oven-cook">
+            <div class="inner-oven">
+              <div class="inner-oven-wrapper">
+                <p>Hey, I am sorry making bad jokes when you needed me to be serious. I didn't know exactly what to do to make you feel better at the time and I made it even worse :(. No need to reply but just want you to know I would trade a lot of things to be there with you. Hope you feel better though I could not do much. Let know me what I should do once you feel ok yea? imu</p>
+                <iframe src="https://giphy.com/embed/51Uiuy5QBZNkoF3b2Z" height='80%' frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
+              </div>
+            </div>
+            <div class="oven-door">
+              <div class="handle"></div>
+              <div class="inner-oven-door"></div>
+            </div>
+          </div>
+        </div>
+<!--         <div class="right"></div> -->
+    </div>
 </div>
 <style>
-    * {
-  box-sizing: border-box;
+    body {
+  background-color: powderblue;
 }
-.header { display: block; height: 20px;}
-.wrapper {
-  width: 350px;
-  height: 350px;
-  display: inline-block;
+
+.container {
   position: relative;
+  margin: 10vh auto;
+  width: 400px;
+  height: 400px;
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  -webkit-perspective-origin: 50% 100%;
+  perspective-origin: 50% 100%;
 }
 
-.head {
+.oven {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: ivory;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(-200px);
+  transform: translateZ(-200px);
+}
+
+.oven > div {
+  position: absolute;
+  display: block;
+  margin: 0;
+  width: 392px;
+  height: 392px;
+  background-color: ivory;
+  border: 4px solid #3e3e00;
+}
+
+.oven .left, .oven .right {
+  background-color: lightsteelblue;
+}
+
+.oven .top {
+  background-color: #e6ecf5;
+}
+
+.burner {
+  position: absolute;
+  bottom: 50px;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  background-color: #3e3e00;
+  transform: translateZ(101px);
+}
+.burner:nth-child(odd) {
+  right: 20%;
+}
+.burner:nth-child(even) {
+  left: 20%;
+}
+.burner:nth-child(3), .burner:nth-child(4) {
+  bottom: 200px;
+}
+
+.doorOpen {
+  /*prespectiv creates the door open effect*/
+  transform: perspective(1200px) translateZ(0px) translateY(0px) translateX(0px) rotateX(-105deg);
+}
+
+.close {
+  transform: none;
+}
+
+.controller {
+  width: 100%;
+  height: 45px;
+  background: grey;
+  margin-bottom: 15px;
+}
+
+.oven-cook {
+  width: 100%;
+  height: 300px;
+  background: black;
+}
+
+.inner-oven {
+  position: absolute;
+  padding: 2%;
+  z-index: 10;
+  width: 95%;
+}
+
+.inner-oven-wrapper {
+  background: white;
+}
+
+.oven-door {
   position: relative;
-  width: 50px;
-  height: 60px;
-  border: 5px solid black;
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-  top: 21px;
-  left: 133px;
-  z-index: 1;
-  animation: rock 1s alternate infinite ease-in-out;
-  transform-origin: center bottom;
-}
-#myface {
-  position: absolute;
-  width: 300%;
-  top: -105%;
-  left: -95%;
-  display: inline-block;
-}
-@keyframes rock {
-  0% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(10deg);
-  }
+  width: 100% -2px;
+  height: 320px;
+  background: black;
+  padding: 4px;
+  transform-origin: bottom;
+  z-index: 1000;
+  /*Speed of the Door animation*/
+  transition: all 0.5s ease-in-out;
 }
 
-.torso {
-  width: 6px;
-  height: 100px;
-  border: 3px solid black;
-  display: block;
-  position: absolute;
-  top: 80px;
-  left: 156px;
+.handle {
+  margin: auto;
+  width: 96%;
+  height: 20px;
+  top: 10px;
+  background: #ededed;
 }
 
-.leftleg {
-  width: 6px;
-  height: 100px;
-  border: 3px solid black;
-  display: block;
-  position: absolute;
-  top: 175px;
-  left: 155px;
-  transform: rotate(12deg);
-  transform-origin: top;
+.inner-oven-door {
+  width: 100%;
+  height: 265px;
+  background: #1c1c1c;
 }
 
-.rightleg {
-  width: 6px;
-  height: 100px;
-  border: 3px solid black;
-  display: block;
-  position: absolute;
-  top: 175px;
-  left: 157px;
-  transform: rotate(-12deg);
-  transform-origin: top;
+p {
+  color: re;
 }
 
-.leftarm {
-  width: 100px;
-  height: 6px;
-  border: 3px solid black;
-  display: block;
-  position: absolute;
-  top: 86px;
-  left: 57px;
-  animation: wave 1s alternate infinite ease-in-out;
-  transform-origin: 100%;
+.oven .top {
+  transform: rotateX(72deg) translateY(-265px) translateZ(190px);
 }
 
-@keyframes wave {
-  0% {
-    transform: rotate(-20deg);
-  }
-  100% {
-    transform: rotate(40deg);
-  }
+.oven .left {
+  transform: rotateY(-90deg) translateZ(200px);
 }
 
-.rightarm {
-  width: 100px;
-  height: 6px;
-  border: 3px solid black;
-  display: block;
-  position: absolute;
-  top: 86px;
-  left: 161px;
-  animation: wave2 1s alternate infinite ease-in-out;
-  transform-origin: 0%;
-}
-
-@keyframes wave2 {
-  0% {
-    transform: rotate(20deg);
-  }
-  100% {
-    transform: rotate(-40deg);
-  }
-}
-
-.leftfoot {
-  width: 30px;
-  height: 6px;
-  border: 3px solid black;
-  display: block;
-  position: absolute;
-  top: 270px;
-  left: 110px;
-  transform: rotate(8deg);
-}
-
-.rightfoot {
-  width: 30px;
-  height: 6px;
-  border: 3px solid black;
-  display: block;
-  position: absolute;
-  top: 270px;
-  left: 178px;
-  transform: rotate(-8deg);
+.oven .right {
+  transform: rotateY(90deg) translateZ(200px);
 }
 </style>
 </body>
